@@ -58,6 +58,15 @@ git push
 
 ## 🛠️ 维护
 
+### 快速同步（推荐）
+
+```bash
+# 一键同步（自动拉取、提交、推送）
+~/.cursor/skills-cursor/sync-skills.sh
+```
+
+### 手动操作
+
 ```bash
 # 查看状态
 git status
@@ -69,6 +78,72 @@ git push
 
 # 同步最新
 git pull
+```
+
+## ⚙️ 自动同步设置
+
+### 方式 1：使用安装脚本（推荐）
+
+```bash
+~/.cursor/skills-cursor/install-auto-sync.sh
+```
+
+提供两种定时方案：
+- **launchd** (macOS 推荐)：系统级定时任务，每小时自动同步
+- **cron**：传统定时任务，每小时自动同步
+
+### 方式 2：手动配置 launchd
+
+```bash
+# 创建配置文件
+cat > ~/Library/LaunchAgents/com.cursor.skills-sync.plist << 'EOF'
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.cursor.skills-sync</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/你的用户名/.cursor/skills-cursor/sync-skills.sh</string>
+    </array>
+    <key>StartInterval</key>
+    <integer>3600</integer>
+    <key>RunAtLoad</key>
+    <true/>
+</dict>
+</plist>
+EOF
+
+# 加载任务
+launchctl load ~/Library/LaunchAgents/com.cursor.skills-sync.plist
+```
+
+### 方式 3：添加快捷命令
+
+在 `~/.zshrc` 或 `~/.bashrc` 中添加：
+
+```bash
+# 加载 skills 别名
+source ~/.cursor/skills-cursor/aliases.sh
+```
+
+然后就可以使用：
+- `skills-sync` - 同步 skills
+- `skills-log` - 查看同步日志
+- `skills-cd` - 进入 skills 目录
+- `skills-status` - 查看 Git 状态
+- `skills-push` - 快速提交并推送
+- `skills-pull` - 拉取最新更新
+
+## 📊 查看日志
+
+```bash
+# 实时查看同步日志
+tail -f ~/.cursor/skills-sync.log
+
+# 查看最近日志
+tail -20 ~/.cursor/skills-sync.log
 ```
 
 ## 📄 许可
