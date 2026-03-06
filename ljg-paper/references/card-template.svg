@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="400" height="600" fill="{BACKGROUND_COLOR}"/>
+  
+  <!-- 装饰性几何图形 (蒙德里安风格) -->
+  <rect x="0" y="0" width="80" height="600" fill="{ACCENT_COLOR_1}" opacity="0.15"/>
+  <rect x="320" y="0" width="80" height="600" fill="{ACCENT_COLOR_2}" opacity="0.15"/>
+  
+  <!-- 标题 -->
+  <text x="200" y="60" font-family="STKaiti, KaiTi, serif" font-size="28" 
+        fill="#4A4A4A" text-anchor="middle" font-weight="bold">
+    论文深读卡片
+  </text>
+  
+  <!-- 分隔线 -->
+  <line x1="60" y1="90" x2="340" y2="90" stroke="#4A4A4A" stroke-width="1" opacity="0.3"/>
+  
+  <!-- 论文标题 (中文) -->
+  <text x="200" y="130" font-family="STKaiti, KaiTi, serif" font-size="18" 
+        fill="#4A4A4A" text-anchor="middle" font-weight="bold">
+    {PAPER_TITLE_CN}
+  </text>
+  
+  <!-- 论文标题 (英文) -->
+  <text x="200" y="155" font-family="Georgia, serif" font-size="14" 
+        fill="#666666" text-anchor="middle" font-style="italic">
+    {PAPER_TITLE_EN}
+  </text>
+  
+  <!-- 分隔线 -->
+  <line x1="60" y1="180" x2="340" y2="180" stroke="#4A4A4A" stroke-width="1" opacity="0.3"/>
+  
+  <!-- 核心增量 -->
+  <text x="40" y="220" font-family="STKaiti, KaiTi, serif" font-size="16" 
+        fill="#4A4A4A" font-weight="bold">
+    核心增量：
+  </text>
+  <foreignObject x="40" y="230" width="320" height="80">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: STKaiti, KaiTi, serif; font-size: 14px; color: #4A4A4A; line-height: 1.6;">
+      {INCREMENT}
+    </div>
+  </foreignObject>
+  
+  <!-- 关键洞察 -->
+  <text x="40" y="330" font-family="STKaiti, KaiTi, serif" font-size="16" 
+        fill="#4A4A4A" font-weight="bold">
+    关键洞察：
+  </text>
+  <foreignObject x="40" y="340" width="320" height="100">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: STKaiti, KaiTi, serif; font-size: 14px; color: #4A4A4A; line-height: 1.6;">
+      {KEY_INSIGHT}
+    </div>
+  </foreignObject>
+  
+  <!-- 博导判决 -->
+  <text x="40" y="460" font-family="STKaiti, KaiTi, serif" font-size="16" 
+        fill="#4A4A4A" font-weight="bold">
+    博导判决：
+  </text>
+  <text x="40" y="485" font-family="STKaiti, KaiTi, serif" font-size="18" 
+        fill="#E63946" font-weight="bold">
+    {VERDICT}
+  </text>
+  
+  <!-- 启发 -->
+  <text x="40" y="520" font-family="STKaiti, KaiTi, serif" font-size="16" 
+        fill="#4A4A4A" font-weight="bold">
+    启发：
+  </text>
+  <foreignObject x="40" y="530" width="320" height="50">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: STKaiti, KaiTi, serif; font-size: 14px; color: #4A4A4A; line-height: 1.6;">
+      {INSPIRATION}
+    </div>
+  </foreignObject>
+</svg>
